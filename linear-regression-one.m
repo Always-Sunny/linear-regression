@@ -1,11 +1,11 @@
 %% ======================= Plotting =======================
 fprintf('Plotting Data ...\n')
-data = load('ex1data1.txt');
+data = load('one-data.txt');
 X = data(:, 1); y = data(:, 2);
 m = length(y); % number of training examples
 
 % Plot Data
-% Note: You have to complete the code in plotData.m
+% plotData.m
 plotData(X, y);
 
 fprintf('Program paused. Press enter to continue.\n');
@@ -16,7 +16,7 @@ pause;
 X = [ones(m, 1), data(:,1)]; % Add a column of ones to x
 theta = zeros(2, 1); % initialize fitting parameters
 
-% Some gradient descent settings
+% gradient descent settings
 iterations = 1500;
 alpha = 0.01;
 
@@ -75,7 +75,7 @@ J_vals = zeros(length(theta0_vals), length(theta1_vals));
 for i = 1:length(theta0_vals)
     for j = 1:length(theta1_vals)
 	  t = [theta0_vals(i); theta1_vals(j)];
-	  J_vals(i,j) = computeCost(X, y, t);
+	  J_vals(i,j) = computeCost(X, y, t)
     end
 end
 
